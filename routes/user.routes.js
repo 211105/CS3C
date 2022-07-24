@@ -1,12 +1,12 @@
-import { Router } from 'express';
-import bodyParser from 'body-parser';
-import { userController } from '../controllers/user.controller.js';
+import { Router } from "express";
+import bodyParser from "body-parser";
+import { userController } from "../controllers/user.controller.js";
 
 const router = Router();
 
-const jsonParser = bodyParser.json()
+const jsonParser = bodyParser.json();
 
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 /**
  * @openapi
@@ -42,8 +42,6 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
  *      404:
  *        description: Not Found
  */
-
-
 
 /**
  * @openapi
@@ -109,7 +107,6 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
  *        description: Not Found
  */
 
-
 /**
  * @openapi
  * '/api/user/recovery_password':
@@ -128,7 +125,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
  *            properties:
  *              email:
  *                type: string
- *                default: 211105@ids.upchiapas.edu.mx
+ *                default: 211106@ids.upchiapas.edu.mx
  *     responses:
  *      200:
  *        description: Create
@@ -138,13 +135,14 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
  *        description: Not Found
  */
 
-router.post('/create', (req, res) => userController.user_create(req, res));
+router.post("/create", (req, res) => userController.user_create(req, res));
 
-router.post('/login', (req, res) => userController.user_login(req, res));
+router.post("/login", (req, res) => userController.user_login(req, res));
 
-router.put('/update', (req, res) => userController.user_update(req, res));
+router.put("/update", (req, res) => userController.user_update(req, res));
 
-router.post('/recovery_password', (req, res) => userController.recovery_password(req, res));
+router.post("/recovery_password", (req, res) =>
+  userController.recovery_password(req, res)
+);
 
 export default router;
-
